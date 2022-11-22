@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "ljwD1awj2z7Y1hNPn9jHdq7OZl/dF0TX2dvYeqn61wtjuVMlyulxHihxAJB2rRVR343hzG/94DWTio4ldAor0g==",
+  "dgSpecHash": "duLtRW6Bc/pitlFgazNgJNmbgWDSXOXjd3W1KT/4vc4aK0Tm8fuX9K33gaEqtK8AOCdl67yCIoQhOx8QEc6hDw==",
   "success": true,
   "projectFilePath": "F:\\vault of code\\vault of c#\\conveyorOpcUaServerWPF\\conveyorOpcUaServerWPF\\conveyorOpcUaServerWPF.csproj",
   "expectedPackageFiles": [
@@ -74,14 +74,14 @@
     "C:\\Users\\codeflac\\.nuget\\packages\\system.text.encoding\\4.3.0\\system.text.encoding.4.3.0.nupkg.sha512",
     "C:\\Users\\codeflac\\.nuget\\packages\\system.threading\\4.3.0\\system.threading.4.3.0.nupkg.sha512",
     "C:\\Users\\codeflac\\.nuget\\packages\\system.threading.tasks\\4.3.0\\system.threading.tasks.4.3.0.nupkg.sha512",
-    "C:\\Users\\codeflac\\.nuget\\packages\\microsoft.windows.sdk.net.ref\\10.0.22000.22\\microsoft.windows.sdk.net.ref.10.0.22000.22.nupkg.sha512"
+    "C:\\Users\\codeflac\\.nuget\\packages\\microsoft.windows.sdk.net.ref\\10.0.22000.27\\microsoft.windows.sdk.net.ref.10.0.22000.27.nupkg.sha512"
   ],
   "logs": [
     {
       "code": "NU1701",
       "level": "Warning",
       "warningLevel": 1,
-      "message": "Package 'NModbus4 2.1.0' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8' instead of the project target framework 'net6.0-windows10.0.22000'. This package may not be fully compatible with your project.",
+      "message": "Package 'NModbus4 2.1.0' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1' instead of the project target framework 'net6.0-windows10.0.22000'. This package may not be fully compatible with your project.",
       "libraryId": "NModbus4",
       "targetGraphs": [
         "net6.0-windows10.0.22000"

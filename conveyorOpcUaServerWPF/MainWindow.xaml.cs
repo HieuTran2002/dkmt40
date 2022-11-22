@@ -1,25 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using modbusMotor;
+using Opc.Ua;
+using System;
+using System.IO.Ports;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
-using Opc.Ua;
-using Opc.Ua.Configuration;
-using Opc.Ua.Server;
-using System.IO.Ports;
-using modbusMotor;
-using ConveyorOpcUAServer;
-using TripleH;
-
 
 namespace conveyorOpcUaServerWPF
 {
@@ -29,6 +15,7 @@ namespace conveyorOpcUaServerWPF
     public partial class MainWindow : Window
     {
         #region Contructor
+
         public MainWindow()
         {
             InitializeComponent();
@@ -37,12 +24,12 @@ namespace conveyorOpcUaServerWPF
             minTB.Text = "0";
             speedSlider.Maximum = 2000;
             speedSlider.Minimum = 0;
-
         }
 
-        #endregion
+        #endregion Contructor
 
         #region Method
+
         private void monitor(ushort[] data)
         {
             if (isConnected)
@@ -53,13 +40,11 @@ namespace conveyorOpcUaServerWPF
                 server.tripleHServer.nodeManager.m_conveyor1.Conveyor.Motor1.outputCurrent.Value = data[3];
                 server.tripleHServer.nodeManager.m_conveyor1.Conveyor.Motor1.outputVoltage.Value = data[4];
                 server.tripleHServer.nodeManager.m_conveyor1.Conveyor.Motor1.Torque.Value = data[5];
-
             }
         }
 
         private void getPortInfo()
         {
-
             try
             {
                 if (!m_port.IsOpen)
@@ -79,17 +64,39 @@ namespace conveyorOpcUaServerWPF
                                       (bitStopComboBox.SelectedIndex == 1) ? StopBits.One :
                                       (bitStopComboBox.SelectedIndex == 2) ? StopBits.Two :
                                       StopBits.One;
-
                 }
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
-
         }
 
-        #endregion
+        private void setMaxminSpeed()
+        {
+            try
+            {
+                if (maxTB.Text.Length > 0 && minTB.Text.Length > 0)
+                {
+                    if (Convert.ToInt16(maxTB.Text) <= Convert.ToInt16(minTB.Text))
+                    {
+                        minTB.Text = maxTB.Text;
+                    }
+                    if (motor != null)
+                    {
+                        speedSlider.Maximum = Convert.ToInt16(maxTB.Text);
+                        speedSlider.Minimum = Convert.ToInt16(minTB.Text);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        #endregion Method
 
         #region Event handler
 
@@ -118,7 +125,6 @@ namespace conveyorOpcUaServerWPF
                     MessageBox.Show(ex.Message);
                 }
             }
-
             else
             {
                 try
@@ -128,7 +134,6 @@ namespace conveyorOpcUaServerWPF
                     startServerBTN.Content = "Start Server";
                     statusText.Text = "Not Walking";
                     tcpText.Text = "Server is downed";
-
                 }
                 catch (Exception ex)
                 {
@@ -136,13 +141,12 @@ namespace conveyorOpcUaServerWPF
                 }
             }
         }
-        
+
         private void copyBTN_Click(object sender, RoutedEventArgs e)
         {
-
             Clipboard.SetDataObject(tcpText.Text);
         }
-        
+
         private void setOnWriteValueEvent()
         {
             server.tripleHServer.nodeManager.m_conveyor1.Conveyor.Motor1.setSpeed.OnWriteValue += OnWrite;
@@ -150,7 +154,21 @@ namespace conveyorOpcUaServerWPF
 
         private ServiceResult OnWrite(ISystemContext context, NodeState node, NumericRange indexRange, QualifiedName dataEncoding, ref object value, ref StatusCode statusCode, ref DateTime timestamp)
         {
-            bool isGood = motor.WriteMotor((int)value, modbusRtuMotor.motorProperty.setSpeed, 1);
+            try
+            {
+                if (m_port.IsOpen)
+                {
+                    bool isGood = motor.WriteMotor(Convert.ToInt32(value), modbusRtuMotor.motorProperty.setSpeed, 1);
+                }
+                else
+                {
+                    Dispatcher.BeginInvoke(delegate () { MessageBox.Show("Port isn't openned yet"); });
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
             return ServiceResult.Good;
         }
 
@@ -180,21 +198,8 @@ namespace conveyorOpcUaServerWPF
 
         private void minMaxChanged(object sender, TextChangedEventArgs e)
         {
-            if (maxTB.Text.Length > 0 && minTB.Text.Length > 0)
-            {
-
-                if (Convert.ToInt16(maxTB.Text) <= Convert.ToInt16(minTB.Text))
-                {
-                    minTB.Text = maxTB.Text;
-                }
-                if(motor != null)
-                {
-                    speedSlider.Maximum = Convert.ToInt16(maxTB.Text);
-                    speedSlider.Minimum = Convert.ToInt16(minTB.Text);
-                }
-            }
         }
- 
+
         private void startStopBTN(object sender, RoutedEventArgs e)
         {
             getPortInfo();
@@ -207,7 +212,6 @@ namespace conveyorOpcUaServerWPF
                     onOffMotorBTN.Content = "Stop Motor";
                     statusMotorLB.Text = "Walking";
                 }
-
                 else if (!m_port.IsOpen)
                 {
                     motor.startMotor();
@@ -220,15 +224,13 @@ namespace conveyorOpcUaServerWPF
                     statusMotorLB.Text = "Not walking anymore";
                     onOffMotorBTN.Content = "Start Motor";
                 }
-
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
-
         }
-     
+
         private void dragCompleted(object sender, RoutedEventArgs e)
         {
             try
@@ -246,16 +248,15 @@ namespace conveyorOpcUaServerWPF
             if (m_port.IsOpen)
             {
                 int value = (directionComboBox.SelectedIndex == 0) ? 4 : 2;
-                motor.WriteMotor(value, modbusRtuMotor.motorProperty.direction, Convert.ToInt16( idTB.Text));
+                motor.WriteMotor(value, modbusRtuMotor.motorProperty.direction, Convert.ToInt16(idTB.Text));
             }
         }
 
-
-        #endregion
+        #endregion Event handler
 
         #region Public feild
 
-        public OPCUAServer server = new OPCUAServer("Server.Config.xml");
+        public OPCUAServer server = new OPCUAServer("OPCUA/Server.Config.xml");
         public bool isConnected = false;
 
         public SerialPort port
@@ -264,15 +265,44 @@ namespace conveyorOpcUaServerWPF
             set {; }
         }
 
-
-        #endregion
+        #endregion Public feild
 
         #region Private field
+
         private SerialPort m_port = new SerialPort();
         private modbusRtuMotor motor;
 
+        #endregion Private field
 
-        #endregion
+        private void minmaxTB_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+            {
+                setMaxminSpeed();
+            }
+        }
 
+
+        private void window_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            if(!(e.Source is TextBox) && e.Source != null)
+            {
+                try
+                {
+                    TabControl whoeverSentThisEvent =  e.Source as TabControl;
+                    whoeverSentThisEvent.Focus();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+            }
+        }
+
+        private void setValueLostValue(object sender, RoutedEventArgs e)
+        {
+            setMaxminSpeed();
+
+        }
     }
 }

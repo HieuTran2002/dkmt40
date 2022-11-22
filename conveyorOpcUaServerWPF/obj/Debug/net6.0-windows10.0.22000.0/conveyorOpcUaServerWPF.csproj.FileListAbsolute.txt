@@ -1,5 +1,3 @@
-F:\vault of code\vault of c#\conveyorOpcUaServerWPF\conveyorOpcUaServerWPF\bin\Debug\net6.0-windows10.0.22000.0\Server.Config.xml
-F:\vault of code\vault of c#\conveyorOpcUaServerWPF\conveyorOpcUaServerWPF\bin\Debug\net6.0-windows10.0.22000.0\TripleH.PredefinedNodes.uanodes
 F:\vault of code\vault of c#\conveyorOpcUaServerWPF\conveyorOpcUaServerWPF\bin\Debug\net6.0-windows10.0.22000.0\conveyorOpcUaServerWPF.exe
 F:\vault of code\vault of c#\conveyorOpcUaServerWPF\conveyorOpcUaServerWPF\bin\Debug\net6.0-windows10.0.22000.0\conveyorOpcUaServerWPF.dll.config
 F:\vault of code\vault of c#\conveyorOpcUaServerWPF\conveyorOpcUaServerWPF\bin\Debug\net6.0-windows10.0.22000.0\conveyorOpcUaServerWPF.deps.json
@@ -30,16 +28,13 @@ F:\vault of code\vault of c#\conveyorOpcUaServerWPF\conveyorOpcUaServerWPF\bin\D
 F:\vault of code\vault of c#\conveyorOpcUaServerWPF\conveyorOpcUaServerWPF\bin\Debug\net6.0-windows10.0.22000.0\WinRT.Runtime.dll
 F:\vault of code\vault of c#\conveyorOpcUaServerWPF\conveyorOpcUaServerWPF\obj\Debug\net6.0-windows10.0.22000.0\conveyorOpcUaServerWPF.csproj.AssemblyReference.cache
 F:\vault of code\vault of c#\conveyorOpcUaServerWPF\conveyorOpcUaServerWPF\obj\Debug\net6.0-windows10.0.22000.0\MainWindow.g.cs
-F:\vault of code\vault of c#\conveyorOpcUaServerWPF\conveyorOpcUaServerWPF\obj\Debug\net6.0-windows10.0.22000.0\Page1.g.cs
 F:\vault of code\vault of c#\conveyorOpcUaServerWPF\conveyorOpcUaServerWPF\obj\Debug\net6.0-windows10.0.22000.0\App.g.cs
 F:\vault of code\vault of c#\conveyorOpcUaServerWPF\conveyorOpcUaServerWPF\obj\Debug\net6.0-windows10.0.22000.0\conveyorOpcUaServerWPF_MarkupCompile.cache
 F:\vault of code\vault of c#\conveyorOpcUaServerWPF\conveyorOpcUaServerWPF\obj\Debug\net6.0-windows10.0.22000.0\conveyorOpcUaServerWPF_MarkupCompile.lref
 F:\vault of code\vault of c#\conveyorOpcUaServerWPF\conveyorOpcUaServerWPF\obj\Debug\net6.0-windows10.0.22000.0\App.baml
 F:\vault of code\vault of c#\conveyorOpcUaServerWPF\conveyorOpcUaServerWPF\obj\Debug\net6.0-windows10.0.22000.0\MainWindow.baml
-F:\vault of code\vault of c#\conveyorOpcUaServerWPF\conveyorOpcUaServerWPF\obj\Debug\net6.0-windows10.0.22000.0\Page1.baml
 F:\vault of code\vault of c#\conveyorOpcUaServerWPF\conveyorOpcUaServerWPF\obj\Debug\net6.0-windows10.0.22000.0\conveyorOpcUaServerWPF.g.resources
 F:\vault of code\vault of c#\conveyorOpcUaServerWPF\conveyorOpcUaServerWPF\obj\Debug\net6.0-windows10.0.22000.0\conveyorOpcUaServerWPF.Properties.Resources.resources
-F:\vault of code\vault of c#\conveyorOpcUaServerWPF\conveyorOpcUaServerWPF\obj\Debug\net6.0-windows10.0.22000.0\conveyorOpcUaServerWPF.Resource1.resources
 F:\vault of code\vault of c#\conveyorOpcUaServerWPF\conveyorOpcUaServerWPF\obj\Debug\net6.0-windows10.0.22000.0\conveyorOpcUaServerWPF.csproj.GenerateResource.cache
 F:\vault of code\vault of c#\conveyorOpcUaServerWPF\conveyorOpcUaServerWPF\obj\Debug\net6.0-windows10.0.22000.0\conveyorOpcUaServerWPF.GeneratedMSBuildEditorConfig.editorconfig
 F:\vault of code\vault of c#\conveyorOpcUaServerWPF\conveyorOpcUaServerWPF\obj\Debug\net6.0-windows10.0.22000.0\conveyorOpcUaServerWPF.AssemblyInfoInputs.cache
@@ -51,3 +46,5 @@ F:\vault of code\vault of c#\conveyorOpcUaServerWPF\conveyorOpcUaServerWPF\obj\D
 F:\vault of code\vault of c#\conveyorOpcUaServerWPF\conveyorOpcUaServerWPF\obj\Debug\net6.0-windows10.0.22000.0\conveyorOpcUaServerWPF.pdb
 F:\vault of code\vault of c#\conveyorOpcUaServerWPF\conveyorOpcUaServerWPF\obj\Debug\net6.0-windows10.0.22000.0\conveyorOpcUaServerWPF.genruntimeconfig.cache
 F:\vault of code\vault of c#\conveyorOpcUaServerWPF\conveyorOpcUaServerWPF\obj\Debug\net6.0-windows10.0.22000.0\ref\conveyorOpcUaServerWPF.dll
+F:\vault of code\vault of c#\conveyorOpcUaServerWPF\conveyorOpcUaServerWPF\bin\Debug\net6.0-windows10.0.22000.0\OPCUA\Server.Config.xml
+F:\vault of code\vault of c#\conveyorOpcUaServerWPF\conveyorOpcUaServerWPF\bin\Debug\net6.0-windows10.0.22000.0\OPCUA\TripleH.PredefinedNodes.uanodes

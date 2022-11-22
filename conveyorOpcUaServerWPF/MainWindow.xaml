@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:conveyorOpcUaServerWPF"
         mc:Ignorable="d"
         Title="Triple-H OPC-UA Server" Height="640" Width="1020" Background="#000000"
-        FontFamily="Poppins"  
+        FontFamily="Poppins" MouseDown="window_MouseDown"  
         >
 
     <Window.Resources>
@@ -766,9 +766,9 @@
                 </TabItem>
 
 
-                <TabItem Header="Monitor" Style="{DynamicResource tabItemStyle}">
+                <TabItem Header="Monitor" Style="{DynamicResource tabItemStyle}" >
 
-                    <Grid>
+                    <Grid >
 
                         <Grid.RowDefinitions>
                             <RowDefinition Height="200"/>
@@ -821,7 +821,7 @@
                                     Height="40"
                                     VerticalAlignment="Center"
                                     HorizontalAlignment="Right"
-                                    Margin="0 0 20 0" PreviewTextInput="decimalTextBoxPreview">
+                                    Margin="0 0 20 0" PreviewTextInput="decimalTextBoxPreview" LostFocus="setValueLostValue">
 
 
                         </TextBox>
@@ -859,7 +859,7 @@
                                          Width="100"
                                          Height="40"
                                          VerticalAlignment="Center"
-                                         Padding="0 0 0 0" PreviewTextInput="decimalTextBoxPreview" TextChanged="minMaxChanged" >
+                                         Padding="0 0 0 0" PreviewTextInput="decimalTextBoxPreview" TextChanged="minMaxChanged" KeyDown="minmaxTB_KeyDown" LostFocus="setValueLostValue" >
 
 
                                 </TextBox>
@@ -878,7 +878,7 @@
                                          Name="maxTB"
                                          Width="100" 
                                         Height="40"
-                                        PreviewTextInput="decimalTextBoxPreview" TextChanged="minMaxChanged"
+                                        PreviewTextInput="decimalTextBoxPreview" TextChanged="minMaxChanged" KeyDown="minmaxTB_KeyDown" LostFocus="setValueLostValue"
                                          />
 
                             </DockPanel>
